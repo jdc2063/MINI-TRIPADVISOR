@@ -19,7 +19,7 @@ class EstablishmentSeeder extends Seeder
             'name' => 'Manga Story',
             'address' => '13 Boulevard Voltaire',
             'city' => 'Paris',
-            'ZIP code' => 75011,
+            'ZIP_code' => 75011,
             'country' => 'France',
         ]);
 
@@ -27,7 +27,7 @@ class EstablishmentSeeder extends Seeder
             'name' => 'Hayaku Shop Manga',
             'address' => '4 Rue Dante',
             'city' => 'Paris',
-            'ZIP code' => 75005,
+            'ZIP_code' => 75005,
             'country' => 'France',
         ]);
     }

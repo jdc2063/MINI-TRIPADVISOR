@@ -18,7 +18,7 @@ class CreateEstablishmentTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('city');
-            $table->integer('ZIP code');
+            $table->integer('ZIP_code');
             $table->string('country');
             $table->timestamps();
         });

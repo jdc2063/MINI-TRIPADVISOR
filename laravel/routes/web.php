@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 Route::get('/', [App\Http\Controllers\EstablishmentController::class, 'home'])->name('home');
+Route::get('/place', [App\Http\Controllers\EstablishmentController::class, 'new'])->name('new_esta');
+Route::post('/place', [App\Http\Controllers\EstablishmentController::class, 'create'])->name('create_esta');
+Route::get('/place/{id}', [App\Http\Controllers\EstablishmentController::class, 'show'])->name('create_esta');
+Route::post('delete/place', [App\Http\Controllers\EstablishmentController::class, 'delete'])->name('create_esta');
+Route::post('/comment', [App\Http\Controllers\CommentController::class, 'create'])->name('create_esta');
