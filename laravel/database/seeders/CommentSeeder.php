@@ -17,14 +17,12 @@ class CommentSeeder extends Seeder
     {
         DB::table('comment')->insert([
             'note' => 4.44,
-            'user_id' => 1,
             'establishment_id' => 2,
             'comment' => 'Interessant',
         ]);
 
         DB::table('comment')->insert([
             'note' => 1.1,
-            'user_id' => 2,
             'establishment_id' => 1,
             'comment' => 'Nul',
         ]);

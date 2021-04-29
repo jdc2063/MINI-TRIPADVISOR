@@ -16,7 +16,6 @@ class CreateCommentTable extends Migration
         Schema::create('comment', function (Blueprint $table) {
             $table->id();
             $table->string('comment');
-            $table->integer('user_id');
             $table->integer('establishment_id');
             $table->decimal('note', 2, 1);
             $table->timestamps();

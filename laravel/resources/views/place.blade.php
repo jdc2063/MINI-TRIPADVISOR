@@ -52,6 +52,15 @@
         <section class="comment">
             @foreach ($comments as $comments)
                 <h1>{{$comments->comment}}</h1>
+                <form action="/delete/comment" method="POST" id="addestablishment" enctype="multipart/form-data">
+                    <div class="container">
+                        {{ csrf_field() }}
+                        
+                        <input type="hidden"  id="id" name="id" value="{{$comments->id}}">
+                        <br>
+                         <button type="submit" class="btn btn-primary">Supprimer</button>
+                    </div>
+                </form>
             @endforeach
         </section>
     </body>
