@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Establishment;
+use App\Models\Comment;
 use Illuminate\Support\Facades\DB;
 class EstablishmentController extends Controller
 {
@@ -26,7 +27,9 @@ class EstablishmentController extends Controller
     public function show($id) {
         $place = new Establishment;
         $place = $place->find($id);
-        return view('place')->withEstablishments($place);
+        $comment = new Comment;
+        $comment = Comment::where('establishment_id', 'like', $id)->get();
+        return view('place')->withEstablishments($place)->withComments($comment);
     }
 
     public function delete(Request $request) {

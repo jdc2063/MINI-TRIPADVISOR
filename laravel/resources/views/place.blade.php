@@ -38,15 +38,21 @@
                 {{ csrf_field() }}
                 Commentaire :
                 
-                <input type="text" class="form-controle" id="inputname" name="name">
+                <input type="text" class="form-controle" id="inputname" name="comment">
 
                 <br>
                 Note :
-                <input type="decimal" class="form-controle" id="inputaddress" name="address">
+                <input type="decimal" class="form-controle" id="inputaddress" name="note">
                 
+                <input type="hidden"  id="establishment_id" name="establishment_id" value="{{$establishments->id}}">
                 <br>
                  <button type="submit" class="btn btn-primary">Ajouter</button>
             </div>
         </form>
+        <section class="comment">
+            @foreach ($comments as $comments)
+                <h1>{{$comments->comment}}</h1>
+            @endforeach
+        </section>
     </body>
 </html>
