@@ -1,0 +1,45 @@
+.button a {
+    display: block;
+    width: 150px;
+    line-height: 50px;
+    text-align: center;
+    margin: auto;
+    background: url(../images/bouton-noir.png) no-repeat;
+    color: white;
+    text-decoration: none;
+}
+
+.button a:hover {
+    background:url(../images/bouton-noir-2.png) no-repeat;
+}
+
+.stylo a {
+    display: block;
+    width: 150px;
+    line-height: 50px;
+    text-align: center;
+    margin: auto;
+    background: url(../images/icons8-modifier-48.png) no-repeat;
+    color: white;
+    text-decoration: none;
+}
+
+.stylo a:hover {
+    background:url(../images/icons8-modifier-48-red.png) no-repeat;
+}
+
+.poubelle a {
+    display: block;
+    width: 150px;
+    line-height: 50px;
+    text-align: center;
+    margin: auto;
+    background: url(../images/icons8-poubelle-48.png) no-repeat;
+    color: white;
+    text-decoration: none;
+    grid-column: 2;
+}
+
+.poubelle a:hover {
+    background:url(../images/icons8-poubelle-48-red.png) no-repeat;
+}

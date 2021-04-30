@@ -1,27 +1,31 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    </head>
-    <body>
-        <section class="header">
-            <h1>bye</h1>
-        </section>
-        <section><a href="/place">Créer</a></section>
-        <section class="body">
-            @foreach ($establishments as $establishments)
+@section('content')
+    @auth
+    <section class="button"><p><a href="/place">Créer</a></p></section>
+    @endauth
+    
+    <section class="body_home">
+        @foreach ($establishments as $establishments)
+            <a href="/place/{{$establishments->id}}">
                 <section class="establishment">
-                    <a href="/place/{{$establishments->id}}"><h1 class="name">{{$establishments->name}}</h1>
-                    <h3 class="address">{{$establishments->address}}</h3>
+                    @if ($establishments->image == "/images/icons8-house-52.png")
+                        <img class="default_image" src="{{$establishments->image}}">
+                    @else
+                        <img class="image" src="{{$establishments->image}}">
+                    @endif
+                    
+                    <section class="info">
+                        <h1 class="name">{{$establishments->name}}</h1>
+                        <h3 class="address">{{$establishments->address}}</h3>
+                        @if($establishments->note === NULL)
+                            <h4>Pas de note</h4>
+                        @else
+                            <h4 class="note">{{$establishments->note}}</h4>
+                        @endif
+                    </section>
                 </section>
-            @endforeach
-        </section>
-    </body>
-</html>
+            </a>
+        @endforeach
+    </section>
+@endsection

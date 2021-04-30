@@ -15,16 +15,6 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('comment')->insert([
-            'note' => 4.44,
-            'establishment_id' => 2,
-            'comment' => 'Interessant',
-        ]);
-
-        DB::table('comment')->insert([
-            'note' => 1.1,
-            'establishment_id' => 1,
-            'comment' => 'Nul',
-        ]);
+        
     }
 }

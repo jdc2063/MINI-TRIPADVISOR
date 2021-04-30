@@ -17,6 +17,30 @@ class Establishment extends Model
         $establishment->city = $request->city;
         $establishment->ZIP_code = $request->ZIP_code;
         $establishment->country = $request->country;
+        if ($request->avatar != NULL) {
+            $path = request('avatar')->store('avatars', 'public');
+            $path = "/storage/" . $path;
+            $establishment->image = $path;
+        }
+        return($establishment);
+    }
+
+    static function updateEstablishment($request) {
+        $establishment = Establishment::find($request->id);
+        $establishment->name = $request->name;
+        $establishment->address = $request->address;
+        $establishment->city = $request->city;
+        $establishment->ZIP_code = $request->ZIP_code;
+        $establishment->country = $request->country;
+        if ($request->avatar != NULL) {
+            $path = request('avatar')->store('avatars', 'public');
+            $path = "/storage/" . $path;
+            $establishment->image = $path;
+        } else if ($request->delete_image == "on") {
+            $path = "/images/icons8-house-52.png";
+            $establishment->image = $path;
+        }
+        
         return($establishment);
     }
 }

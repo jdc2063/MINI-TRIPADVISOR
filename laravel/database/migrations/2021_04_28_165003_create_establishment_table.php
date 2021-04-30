@@ -20,6 +20,8 @@ class CreateEstablishmentTable extends Migration
             $table->string('city');
             $table->integer('ZIP_code');
             $table->string('country');
+            $table->decimal('note', 2, 1)->nullable();
+            $table->string('image')->default('/images/icons8-house-52.png');
             $table->timestamps();
         });
     }

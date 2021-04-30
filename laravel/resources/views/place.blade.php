@@ -1,67 +1,88 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    </head>
-    <body>
-        <section class="header">
-            <h1>bye</h1>
-            
-        </section>
-        <form action="/delete/place" method="post" id="deleteesta">
-
-            <div class="container">
-    
-                {{ csrf_field() }}
-                <input type="hidden" name="id" value="{{$establishments->id}}" />
-                <button type="submit">Delete</button>
-            </div>
-        </form>
+@section('content')
+    <section class="body_place">
         <section class="place">
-                <h1 class="name">{{$establishments->name}}</h1>
-                <h3 class="address">{{$establishments->address}}</h3>
-                <h3 class="address">{{$establishments->city}}</h3>
-                <h3 class="address">{{$establishments->ZIP_code}}</h3>
-                <h3 class="address">{{$establishments->country}}</h3>
+            <img src="{{$establishments->image}}" class="image_place">
+            <h1 class="name">{{$establishments->name}}</h1>
+            <h3 class="address">{{$establishments->address}}</h3>
+            <h3 class="address">{{$establishments->city}}</h3>
+            <h3 class="address">{{$establishments->ZIP_code}}</h3>
+            <h3 class="address">{{$establishments->country}}</h3>
+            @if($establishments->note === NULL)
+                <h3>Pas de note</h3>
+            @else
+                <h3 class="note">{{$establishments->note}}</h3>
+            @endif
         </section>
 
-        <h2>Ajouter un commentaire</h2>
-        <form action="/comment" method="POST" id="addestablishment" enctype="multipart/form-data">
-            <div class="container">
-                {{ csrf_field() }}
-                Commentaire :
-                
-                <input type="text" class="form-controle" id="inputname" name="comment">
+        @auth
+            <section class="icon_place">
+                <section class="poubelle" style="float:right">
+                    <a href="/delete/place/{{$establishments->id}}">a</a>
+                </section>
+                <section class="stylo" style="float:right">
+                    <a href="/update/place/{{$establishments->id}}">a</a>
+                </section> 
+            </section>
+        @endauth
+    </section>
+    <section class="new_comment">
+        @auth
+            <h2>Ajouter un commentaire</h2>
+            <form action="/comment" method="POST" id="addestablishment" enctype="multipart/form-data">
+                <div class="container">
+                    {{ csrf_field() }}
+                    Commentaire (Maximum 191 charactères):
+                    <br>
+                    <input type="text" size="193" maxlength="191" class="form-controle" id="inputname" name="comment" required>
 
-                <br>
-                Note :
-                <input type="decimal" class="form-controle" id="inputaddress" name="note">
-                
-                <input type="hidden"  id="establishment_id" name="establishment_id" value="{{$establishments->id}}">
-                <br>
-                 <button type="submit" class="btn btn-primary">Ajouter</button>
-            </div>
-        </form>
+                    <br>
+                    Note :
+                    <input type="number" min="0" max="5" step="0.1" class="form-controle" id="inputaddress" name="note" value="1">
+                    <br>
+
+                    <input type="hidden"  id="establishment_id" name="establishment_id" value="{{$establishments->id}}">
+                    <input type="hidden"  id="establishment_id" name="author" value="{{$auth}}">
+                    
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
+        @else
+            <h4>Pour laisser un commentaire, veuillez vous connecter.</h4>
+        @endauth
+    </section>
+    
+    @foreach ($comments as $comments)
         <section class="comment">
-            @foreach ($comments as $comments)
-                <h1>{{$comments->comment}}</h1>
-                <form action="/delete/comment" method="POST" id="addestablishment" enctype="multipart/form-data">
-                    <div class="container">
-                        {{ csrf_field() }}
-                        
-                        <input type="hidden"  id="id" name="id" value="{{$comments->id}}">
-                        <br>
-                         <button type="submit" class="btn btn-primary">Supprimer</button>
-                    </div>
-                </form>
-            @endforeach
+            <section class="info_comment">
+                @foreach ($users as $user)
+                    <section class="author"><h3>
+                        @if ($user->id === $comments->author)
+                            <a href="/user/{{$user->id}}"><span>{{$user->name}}</span></a>
+                            @if ($comments->created_at == $comments->updated_at)
+                                <span>créer le {{$comments->created_at}}</span>
+                            @else
+                                <span>modifier le {{$comments->updated_at}}</span>
+                            @endif
+                        @endif
+                    </h3></section>
+                @endforeach
+                
+                <p class="comment_subjet">{{$comments->comment}}</p>
+                {{$comments->note}}
+            </section>
+            <section class="icon_comment">
+                @if ($comments->author === $auth)
+                    <section class="stylo">
+                        <a href="/update/comment/{{$comments->id}}">a</a>
+                    </section>    
+                    <section class="poubelle">
+                        <a href="/delete/comment/{{$comments->id}}">a</a>
+                    </section>
+                @endif
+            </section>
         </section>
-    </body>
-</html>
+    @endforeach
+
+@endsection

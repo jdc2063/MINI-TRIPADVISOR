@@ -1,3 +1,5 @@
+/* Général */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,25 +8,130 @@
 html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
+
+/* Header */
 
 .header {
     background-color: gray;
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
 }
 
-.body {
+.left {
+    grid-column: 1;
+}
+
+.center {
+    grid-column: 2;
+    text-align: center;
+}
+
+.right {
+    grid-column: 3;
+    text-align: right;
+}
+
+/* Liste des établissements (home)*/
+.body_home {
     background-color: white;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 50px;
     justify-content: space-evenly;
 }
 
+/* Case d'établissement (home) */
 .establishment {
     border: black 2px solid;
-    margin: auto;
+    margin: 50px;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 70% 30%;
+    height: 350px;
+    width: 250px;
+}
+
+
+/* Information hors image de l'établissement (home)*/
+.info {
+    grid-row: 2;
+    text-align: center;
+    vertical-align: auto;
+}
+
+/* Information des commentaires (place) */
+.info_comment {
+    grid-column: 1;
+}
+.comment_subjet {
+    overflow-x: auto;
+}
+
+.new_comment {
+    margin-bottom: 50px;
+}
+/* Ajout d'un établissement (add et modify_esta) */
+.add_etablishment {
+    margin-top: 100px;
     text-align: center;
     vertical-align: center;
+}
+
+
+
+/* Affiche un commentaire (place) */
+.comment {
+    margin-bottom: 50px;
+    border: 3px black solid;
+    width: auto;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    
+}
+
+.icon_comment {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.stylo {
+    grid-column: 1;
+}
+.poubelle {
+    grid-column: 2;
+}
+/* Affiche les informations d'un utilisateur (user) */
+.information_user {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.body_place {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+}
+
+/* Afficher les info hors image (place) */
+.place {
+    text-align: center;
+    grid-column: 2;
+    margin-top: 10px;
+}
+
+.icon_place {
+    grid-column: 3;
+    margin-top: 10px;
+}
+
+.body_modify {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+}
+
+.center_modify {
+    grid-column: 2;
+    margin-top: 10px;
 }

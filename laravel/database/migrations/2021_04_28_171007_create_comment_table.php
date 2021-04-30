@@ -17,6 +17,7 @@ class CreateCommentTable extends Migration
             $table->id();
             $table->string('comment');
             $table->integer('establishment_id');
+            $table->integer('author');
             $table->decimal('note', 2, 1);
             $table->timestamps();
         });
