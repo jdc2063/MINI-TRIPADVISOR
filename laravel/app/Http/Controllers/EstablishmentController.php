@@ -33,7 +33,7 @@ class EstablishmentController extends Controller
 
     // Créer un établissement
     public function create(Request $request)  {
-        // Appelle une fonction du model Establishment
+        // Appelle une fonction du modèle Establishment
         $establishment = Establishment::createDTOtoOBJECT($request);
         $establishment->save();
         return redirect('/');

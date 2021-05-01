@@ -43,6 +43,7 @@ body {
     flex: 2;
     overflow: auto;
 }
+
 /* Liste des établissements (home)*/
 .body_home {
     display: flex;
@@ -95,12 +96,10 @@ body {
     grid-column: 1;
 }
 
-/* Le texte du commentaires (place) */
+/* Le texte du commentaire (place) */
 .comment_subjet {
     overflow-x: auto;
 }
-
-
 
 /* Ajout d'un établissement (add et modify_esta) */
 .add_etablishment {
@@ -108,8 +107,6 @@ body {
     text-align: center;
     vertical-align: center;
 }
-
-
 
 /* Affiche les informations d'un utilisateur (user) */
 .information_user {
@@ -150,7 +147,7 @@ body {
     text-align: center;
 }
 
-/* Icon de suppression et modification */
+/* Icone de suppression et modification */
 .icon_place {
     grid-column: 3;
     margin-top: 10px;
