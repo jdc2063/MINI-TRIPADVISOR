@@ -15,9 +15,13 @@ class EstablishmentController extends Controller
     // Affiche la page principale
     public function home() {
         $establishment_null = Establishment::wherenull('note')->get();       
+        
         $establishment = Establishment::all()->sortByDesc('note')->whereNotNull('note');
         foreach ($establishment as $establishment) {
             $establishment_null = $establishment_null->concat([$establishment]);
+        }
+        if ($establishment_null->isEmpty() == "true") {
+            return view('home_void');
         }
         return view('home')->withEstablishments($establishment_null->unique());
     }

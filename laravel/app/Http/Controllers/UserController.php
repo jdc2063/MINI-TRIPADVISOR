@@ -7,23 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         return redirect('/');
@@ -32,8 +17,13 @@ class HomeController extends Controller
     // Affiche la page d'un utilisateur
     public function user($id) {
         $auth = Auth::user();
+        if ($auth == NULL) {
+            $auth = 0;
+        } else {
+            $auth = $auth->id;
+        }
         $user = User::find($id);
-        return view("user")->withAuth($user)->withUsers($user);
+        return view("user")->withAuth($auth)->withUsers($user);
     }
 
     // Affiche la page de modification d'un utilisateur
@@ -57,9 +47,5 @@ class HomeController extends Controller
         }
         $user->save();
         return redirect("/user/$request->id");
-    }
-
-    public function pub() {
-        return view('/pub');
     }
 }

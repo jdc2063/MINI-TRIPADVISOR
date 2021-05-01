@@ -33,9 +33,9 @@
             <form action="/comment" method="POST" id="addcomment" enctype="multipart/form-data">
                 <div class="container">
                     {{ csrf_field() }}
-                    Commentaire (Maximum 191 charactères):
+                    Commentaire (Maximum 1000 charactères):
                     <br>
-                    <input type="text" size="193" maxlength="191" class="form-controle" id="inputcomment" name="comment" required>
+                    <input type="text" style="width: 90%" maxlength="1000" class="form-controle" id="inputcomment" name="comment" required>
 
                     <br>
                     Note :

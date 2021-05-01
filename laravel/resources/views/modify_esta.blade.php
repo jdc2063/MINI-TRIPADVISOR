@@ -38,7 +38,7 @@
                     <br>
                     <input type="hidden" value="{{$places->id}}" class="form-controle" id="inputid" name="id">
 
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
                 </div>
             </form>
         </section>

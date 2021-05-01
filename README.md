@@ -4,7 +4,7 @@
 
 ## Prérequis
 
-Vous aurez besoin de composer afin d'installer les dépendances de Laravel.
+Vous aurez besoin de composer afin d'installer les dépendances de Laravel. 
 
 ## Commandes
 
@@ -16,6 +16,8 @@ Une fois que vous aurez cloné le projet git, entrez dans le projet puis voici c
 - php artisan key:generate
 
 Ainsi, vous aurez installé des dossiers importants pour le bon fonctionnement du projet.
+
+N'oubliez pas de créer et d'activer votre base de donnée.
 
 Vous devrez ensuite modifier le fichier .env afin de rentrer les informations de votre base de données qui se situe de la ligne 10 à 15.
 
@@ -57,7 +59,7 @@ Toutes les informations de l'établissement et ses commentaires sont affichés. 
 
 - Vous pourrez modifier/supprimer l'établissement.
 - Vous pourrez ajouter un commentaire.
-- Vous pourrez modifier/supprimer vos commentaires
+- Vous pourrez modifier/supprimer vos commentaires.
 
 À chaque ajout/modification/suppression d'un commentaire, la moyenne des notes est recalculée.
 
@@ -66,3 +68,7 @@ Vous pourrez voir le profil d'un utilisateur en appuyant sur son pseudo dans les
 ### Modification de profil/d'établissement/de commentaire
 
 Quelque soit ce que vous modifiez, les valeurs par défaut sont les valeurs de l'élément modifier. Toutes les informations sont obligatoires et ne pourront pas être vides. Pour ce qui est des images, elles ne sont pas obligatoires. Vous pouvez ne pas sélectionner d'image pour garder l'image actuelle, en choisir une pour la modifier ou même d'enlever l'image actuelle au profil de l'image par défaut.
+
+### Easter Egg
+
+Dans la page d'accueil, dans le cas où aucun établissement est enrengistré, un lien secret est caché dans la phrase d'accueil.

@@ -50,4 +50,8 @@ class CommentController extends Controller
         Comment::new_note($id_place);
         return redirect("/place/$id_place");
     }
+
+    public function pub() {
+        return view('/pub');
+    }
 }

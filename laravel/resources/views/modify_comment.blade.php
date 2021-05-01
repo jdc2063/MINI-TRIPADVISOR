@@ -23,9 +23,9 @@
             <form action="/update/comment" method="POST" id="addestablishment" enctype="multipart/form-data">
                 <div class="container">
                     {{ csrf_field() }}
-                    Commentaire (Maximum 191 charactères):
+                    Commentaire (Maximum 1000 charactères):
                     <br>
-                    <input type="text" value="{{$comments->comment}}" size="193" maxlength="191" class="form-controle" id="inputcomment" name="comment" required>
+                    <input type="text" value="{{$comments->comment}}" style="width: 90%" size="1004" maxlength="1000" class="form-controle" id="inputcomment" name="comment" required>
 
                     <br>
                     Note :
@@ -33,11 +33,9 @@
                     <br>  
                     <input type="hidden" value="{{$comments->id}}" class="form-controle" id="inputid" name="id">                  
                     
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
                 </div>
             </form>
-        @else
-            <h4>Pour laisser un commentaire, veuillez vous connecter.</h4>
         @endauth
     </section>
 @endsection

@@ -9,7 +9,7 @@
                 <h3>Email: {{$users->email}}</h3>
             </section>
         </section>
-        @if (auth()->user()->id == $users->id)
+        @if ($auth == $users->id)
             <section class="icon_place">
                 <section class="stylo" style="float:right">
                     <a href="/update/user/{{$users->id}}">a</a>

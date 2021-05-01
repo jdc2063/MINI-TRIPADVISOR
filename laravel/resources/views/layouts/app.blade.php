@@ -22,62 +22,58 @@
     <link href="{{ asset('css/icone.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="header">
-                <a class="left" href="{{ url('/') }}">
-                    <h1>HOME</h1>
-                </a>
-
-                <section class="center">
-                    <h2>MINI TRIPADVISOR</h2>
-                </section>
+    <section class="header">
+                    
+        <!-- Left Side Of Navbar -->
+        <ul class="navbar-nav mr-auto">
+            <a href="{{ url('/') }}" class="nav-link">
+                <h1>HOME</h1>
+            </a>
+            
+        </ul>
+        
+        <h2> Mini Tripadvisor</h2>
+        <!-- Right Side Of Navbar -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Authentication Links -->
+            @guest
                 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="left">
-
-                    </ul>
-                    
-                    <!-- Right Side Of Navbar -->
-                    
-                    <ul class="right">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            @endif
-                            <br>
-                            @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            @endif
-                        @else
-                            <h3 class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/user/{{auth()->user()->id}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Mon profil
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </h3>
-                        @endguest
-                    </ul>
+                @if (Route::has('login'))
+                    <a class="nav-link"  href="{{ route('login') }}"><h4>{{ __('Login') }}</h4></a>                  
+                @endif
+                <div>
+                    @if (Route::has('register'))
+                        <a class="nav-link"  href="{{ route('register') }}"><h4>{{ __('Register') }}</h4></a>
+                    @endif
                 </div>
-            </div>
-        </nav>
+            @else
+                    <a id="navbarDropdown"  class="nav-link" href="/user/{{auth()->user()->id}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <h4>Mon profil</h4>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="nav-link"  href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            <h4>{{ __('Logout') }}</h4>
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+            @endguest
+        </ul>
+    </section>
 
         <main class="py-4">
             @yield('content')
         </main>
+        <section class="footer">
+            <a class="image_link" target="_blank" href="https://github.com/jdc2063"><img src = "/images/icons8-github-48.png" height = "100%"></a>
+        
+            <a class="image_link" target="_blank" href="https://www.linkedin.com/in/jeremy-da-cruz/"><img src = "/images/icons8-linkedin-48.png" height = "100%"></a>
+        </section>
     </div>
 </body>
 </html>

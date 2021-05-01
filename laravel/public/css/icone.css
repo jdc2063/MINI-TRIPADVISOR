@@ -46,3 +46,7 @@
 .poubelle a:hover {
     background:url(../images/icons8-poubelle-48-red.png) no-repeat;
 }
+
+.right_f {
+    float: right;
+}

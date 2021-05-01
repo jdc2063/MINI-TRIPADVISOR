@@ -7,8 +7,8 @@
     
     <section class="body_home">
         @foreach ($establishments as $establishments)
-            <a href="/place/{{$establishments->id}}">
-                <section class="establishment">
+            <section class="establishment">
+                <a href="/place/{{$establishments->id}}">
                     @if ($establishments->image == "/images/icons8-house-52.png")
                         <img class="default_image" src="{{$establishments->image}}">
                     @else
@@ -24,8 +24,8 @@
                             <h4 class="note">{{$establishments->note}}</h4>
                         @endif
                     </section>
-                </section>
-            </a>
+                </a>
+            </section>
         @endforeach
     </section>
 @endsection
