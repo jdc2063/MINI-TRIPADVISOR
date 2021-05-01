@@ -10,6 +10,7 @@ class Establishment extends Model
     use HasFactory;
     protected $table = "establishment";
 
+    // Créer un établissement avec les informations de la requête
     static function createDTOtoOBJECT($request) {
         $establishment = new Establishment;
         $establishment->name = $request->name;
@@ -25,6 +26,7 @@ class Establishment extends Model
         return($establishment);
     }
 
+    // Modifie l'établissement avec les informations de la requête
     static function updateEstablishment($request) {
         $establishment = Establishment::find($request->id);
         $establishment->name = $request->name;
@@ -40,7 +42,6 @@ class Establishment extends Model
             $path = "/images/icons8-house-52.png";
             $establishment->image = $path;
         }
-        
         return($establishment);
     }
 }

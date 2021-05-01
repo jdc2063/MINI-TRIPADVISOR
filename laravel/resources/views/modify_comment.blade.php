@@ -2,7 +2,6 @@
 
 @section('content')
     <section class="body_place">
-           
         
         <section class="place">
             <img src="{{$establishments->image}}" class="image_place">
@@ -26,11 +25,11 @@
                     {{ csrf_field() }}
                     Commentaire (Maximum 191 charactères):
                     <br>
-                    <input type="text" value="{{$comments->comment}}" size="193" maxlength="191" class="form-controle" id="inputname" name="comment" required>
+                    <input type="text" value="{{$comments->comment}}" size="193" maxlength="191" class="form-controle" id="inputcomment" name="comment" required>
 
                     <br>
                     Note :
-                    <input type="number" value="{{$comments->note}}" min="0" max="5" step="0.1" class="form-controle" id="inputaddress" name="note" value="1">
+                    <input type="number" value="{{$comments->note}}" min="0" max="5" step="0.1" class="form-controle" id="inputaddress" name="note" value="1" required>
                     <br>  
                     <input type="hidden" value="{{$comments->id}}" class="form-controle" id="inputid" name="id">                  
                     

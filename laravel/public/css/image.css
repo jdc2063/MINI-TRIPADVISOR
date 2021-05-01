@@ -1,3 +1,4 @@
+/* Format d'image pour la page principale */
 .image {
     display: block;
     margin: auto;
@@ -7,6 +8,7 @@
     border: 1px black solid;
 }
 
+/* Format des images par défaut pour la page principale */
 .default_image {
     display: block;
     margin: auto;
@@ -16,6 +18,8 @@
     border: 1px black solid;
 }
 
+/* Format d'image pour les pages liés aux utilisateur
+et aux établissements */
 .image_place {
     display: block;
     width: 60%;

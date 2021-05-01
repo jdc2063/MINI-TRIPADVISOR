@@ -61,17 +61,38 @@ html, body {
     vertical-align: auto;
 }
 
-/* Information des commentaires (place) */
-.info_comment {
-    grid-column: 1;
-}
-.comment_subjet {
-    overflow-x: auto;
+/* Afficher les informations de l'établissement hors image (place) */
+.place {
+    text-align: center;
+    grid-column: 2;
+    margin-top: 10px;
 }
 
 .new_comment {
     margin-bottom: 50px;
 }
+
+/* Affiche un commentaire (place) */
+.comment {
+    margin-bottom: 50px;
+    border: 3px black solid;
+    width: auto;
+    display: grid;
+    grid-template-columns: 80% 20%;  
+}
+
+/* Information des commentaires (place) */
+.info_comment {
+    grid-column: 1;
+}
+
+/* Le texte du commentaires (place) */
+.comment_subjet {
+    overflow-x: auto;
+}
+
+
+
 /* Ajout d'un établissement (add et modify_esta) */
 .add_etablishment {
     margin-top: 100px;
@@ -81,14 +102,16 @@ html, body {
 
 
 
-/* Affiche un commentaire (place) */
-.comment {
-    margin-bottom: 50px;
-    border: 3px black solid;
-    width: auto;
+/* Affiche les informations d'un utilisateur (user) */
+.information_user {
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Division des pages utilisateurs et établissements */
+.body_place {
     display: grid;
-    grid-template-columns: 80% 20%;
-    
+    grid-template-columns: 30% 40% 30%;
 }
 
 .icon_comment {
@@ -100,38 +123,25 @@ html, body {
 .stylo {
     grid-column: 1;
 }
+
 .poubelle {
     grid-column: 2;
 }
-/* Affiche les informations d'un utilisateur (user) */
-.information_user {
-    text-align: center;
-    margin-top: 100px;
-}
 
-.body_place {
-    display: grid;
-    grid-template-columns: 30% 40% 30%;
-}
-
-/* Afficher les info hors image (place) */
-.place {
-    text-align: center;
-    grid-column: 2;
-    margin-top: 10px;
-}
-
-.icon_place {
-    grid-column: 3;
-    margin-top: 10px;
-}
-
+/* Division des pages de modification */
 .body_modify {
     display: grid;
     grid-template-columns: 30% 40% 30%;
 }
 
+/* Requête de modification */
 .center_modify {
     grid-column: 2;
+    margin-top: 10px;
+}
+
+/* Icon de suppression et modification */
+.icon_place {
+    grid-column: 3;
     margin-top: 10px;
 }

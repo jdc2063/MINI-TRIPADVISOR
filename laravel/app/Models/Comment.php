@@ -12,6 +12,8 @@ class Comment extends Model
     use HasFactory;
     protected $table = "comment";
 
+    /* Met à jour la note d'un établissement après la suppression
+     ou l'ajout d'un commentaire */
     static function new_note($id_place) {
         $list = Comment::where('establishment_id', 'like', $id_place)->get();
         $new_note = 0;

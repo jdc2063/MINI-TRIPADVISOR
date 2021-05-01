@@ -16,20 +16,27 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
+
+// Page principale
 Route::get('/', [App\Http\Controllers\EstablishmentController::class, 'home'])->name('home');
-Route::get('/place', [App\Http\Controllers\EstablishmentController::class, 'new'])->name('new_esta')->middleware('auth');
-Route::post('/place', [App\Http\Controllers\EstablishmentController::class, 'create'])->name('create_esta')->middleware('auth');
-Route::get('/place/{id}', [App\Http\Controllers\EstablishmentController::class, 'show'])->name('create_esta');
-Route::get('/delete/place/{id}', [App\Http\Controllers\EstablishmentController::class, 'delete'])->name('create_esta')->middleware('auth');
-Route::post('/comment', [App\Http\Controllers\CommentController::class, 'create'])->name('create_esta')->middleware('auth');
-Route::get('/delete/comment/{id}', [App\Http\Controllers\CommentController::class, 'delete'])->name('create_esta')->middleware('auth');
-Route::get('/update/comment/{id}', [App\Http\Controllers\CommentController::class, 'page_change'])->name('create_esta')->middleware('auth');
-Route::post('/update/comment', [App\Http\Controllers\CommentController::class, 'update'])->name('create_esta')->middleware('auth');
-Route::get('/user/{id}', [App\Http\Controllers\HomeController::class, 'user'])->name('home'); 
-Route::get('/update/place/{id}', [App\Http\Controllers\EstablishmentController::class, 'page_change'])->name('create_esta')->middleware('auth');
-Route::post('/update/place', [App\Http\Controllers\EstablishmentController::class, 'update'])->name('create_esta')->middleware('auth');
-Route::get('/update/user/{id}', [App\Http\Controllers\HomeController::class, 'page_change'])->name('create_esta')->middleware('auth');
-Route::post('/update/user', [App\Http\Controllers\HomeController::class, 'update'])->name('create_esta')->middleware('auth');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Utilisateur
+Route::get('/user/{id}', [App\Http\Controllers\HomeController::class, 'user'])->name('show_user'); 
+Route::get('/update/user/{id}', [App\Http\Controllers\HomeController::class, 'page_change'])->name('change_user')->middleware('auth');
+Route::post('/update/user', [App\Http\Controllers\HomeController::class, 'update'])->name('update_user')->middleware('auth');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Etablissement
+Route::get('/place/{id}', [App\Http\Controllers\EstablishmentController::class, 'show'])->name('show_esta');
+Route::get('/place', [App\Http\Controllers\EstablishmentController::class, 'new'])->name('new_esta')->middleware('auth');
+Route::post('/place', [App\Http\Controllers\EstablishmentController::class, 'create'])->name('create_esta')->middleware('auth');
+Route::get('/delete/place/{id}', [App\Http\Controllers\EstablishmentController::class, 'delete'])->name('delete_esta')->middleware('auth');
+Route::get('/update/place/{id}', [App\Http\Controllers\EstablishmentController::class, 'page_change'])->name('change_esta')->middleware('auth');
+Route::post('/update/place', [App\Http\Controllers\EstablishmentController::class, 'update'])->name('update_esta')->middleware('auth');
+
+// Commentaire
+Route::post('/comment', [App\Http\Controllers\CommentController::class, 'create'])->name('create_comment')->middleware('auth');
+Route::get('/delete/comment/{id}', [App\Http\Controllers\CommentController::class, 'delete'])->name('delete_comment')->middleware('auth');
+Route::get('/update/comment/{id}', [App\Http\Controllers\CommentController::class, 'page_change'])->name('change_comment')->middleware('auth');
+Route::post('/update/comment', [App\Http\Controllers\CommentController::class, 'update'])->name('update_comment')->middleware('auth');

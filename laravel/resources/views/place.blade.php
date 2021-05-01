@@ -30,16 +30,16 @@
     <section class="new_comment">
         @auth
             <h2>Ajouter un commentaire</h2>
-            <form action="/comment" method="POST" id="addestablishment" enctype="multipart/form-data">
+            <form action="/comment" method="POST" id="addcomment" enctype="multipart/form-data">
                 <div class="container">
                     {{ csrf_field() }}
                     Commentaire (Maximum 191 charactères):
                     <br>
-                    <input type="text" size="193" maxlength="191" class="form-controle" id="inputname" name="comment" required>
+                    <input type="text" size="193" maxlength="191" class="form-controle" id="inputcomment" name="comment" required>
 
                     <br>
                     Note :
-                    <input type="number" min="0" max="5" step="0.1" class="form-controle" id="inputaddress" name="note" value="1">
+                    <input type="number" min="0" max="5" step="0.1" class="form-controle" id="inputnote" name="note" value="1" required>
                     <br>
 
                     <input type="hidden"  id="establishment_id" name="establishment_id" value="{{$establishments->id}}">

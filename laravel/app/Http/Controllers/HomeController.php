@@ -29,17 +29,20 @@ class HomeController extends Controller
         return redirect('/');
     }
 
+    // Affiche la page d'un utilisateur
     public function user($id) {
         $auth = Auth::user();
         $user = User::find($id);
         return view("user")->withAuth($user)->withUsers($user);
     }
 
+    // Affiche la page de modification d'un utilisateur
     public function page_change($id) {
         $user = User::find($id);
         return view("modify_user")->withUsers($user);
     }
 
+    // Modifie un utilisateur
     public function update(Request $request) {
         $user = User::find($request->id);
         $user->name = $request->name;
