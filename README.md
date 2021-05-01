@@ -4,7 +4,7 @@
 
 ## Prérequis
 
-Vous aurez besoin de composer afin d'installer les dépendances de Laravel
+Vous aurez besoin de composer afin d'installer les dépendances de Laravel.
 
 ## Commandes
 
@@ -29,15 +29,15 @@ Et enfin
 ### Header
 
 Toutes les pages ont le même header.
-A gauche, vous avez un bouton pour aller à la page home.
-A droite, les boutons changent selon si vous êtes connecté ou non:
+À gauche, vous avez un bouton pour aller à la page home.
+À droite, les boutons changent selon si vous êtes connecté ou non:
 
 - Si vous n'êtes pas connecté, Vous trouverez un bouton pour vous enregistrer et un autre pour vous connecter.
 - Si vous êtes connecté, vous trouverez à la place un bouton pour avoir accès à votre profil et un bouton pour vous déconnecter.
 
 ### Profil
 
-Vous voyez les informations d'un utilisateur. Si il s'agit du votre, une icone pour le modifier apparait à gauche de l'image.
+Vous voyez les informations d'un utilisateur. S'il s'agit du votre, une icone pour le modifier apparait à gauche de l'image.
 
 
 
@@ -45,24 +45,24 @@ Vous voyez les informations d'un utilisateur. Si il s'agit du votre, une icone p
 
 Vous voyez la liste des établissements créés. Les établissements sans notes sont mis en avant et le reste sont triés par ordre décroissant par rapport à leur note. En appuyant sur les informations d'un établissement, vous êtes dirigé vers sa page.
 
-Si vous êtes authentifié, un bouton "créer" apparait.
+Si vous êtes authentifié, un bouton "créer" apparaît.
 
 ### Création d'établissement
 
-Vous devez remplir obligatoirement remplir chaque information demandé excepté l'image, où il sera attribué une image par défaut si aucune image n'a été entrée.
+Vous devez remplir obligatoirement remplir chaque information demandée exceptée l'image, où il sera attribué une image par défaut si aucune image n'a été entrée.
 
 ### Affichage d'un établissement
 
-Toutes les informations de l'établissement et ses commentaires sont affichés. Si vous êtes connecté, plusieurs boutons apparaissent et plusieurs actions vous sont permis:
+Toutes les informations de l'établissement et ses commentaires sont affichés. Si vous êtes connecté, plusieurs boutons apparaissent et plusieurs actions vous sont permises:
 
-- Vous pourrez modifier/supprimer l'établissement.$
+- Vous pourrez modifier/supprimer l'établissement.
 - Vous pourrez ajouter un commentaire.
 - Vous pourrez modifier/supprimer vos commentaires
 
-A chaque ajout/modification/suppression d'un commentaire, la moyenne des notes est recalculée.
+À chaque ajout/modification/suppression d'un commentaire, la moyenne des notes est recalculée.
 
 Vous pourrez voir le profil d'un utilisateur en appuyant sur son pseudo dans les commentaires.
 
 ### Modification de profil/d'établissement/de commentaire
 
-Quelque soit ce que vous modifiez, les valeurs par défaut sont les valeurs de l'élément modifier. Toutes les informations sont obligatoires et ne pourront pas être vide. Pour ce qui est des images, elles ne sont pas obligatoires. Vous pouvez ne pas sélectionner d'image pour garder l'image actuelle, en choisir une pour la modifier ou même d'enlever l'image actuelle au profil de l'image par défaut.
+Quelque soit ce que vous modifiez, les valeurs par défaut sont les valeurs de l'élément modifier. Toutes les informations sont obligatoires et ne pourront pas être vides. Pour ce qui est des images, elles ne sont pas obligatoires. Vous pouvez ne pas sélectionner d'image pour garder l'image actuelle, en choisir une pour la modifier ou même d'enlever l'image actuelle au profil de l'image par défaut.
