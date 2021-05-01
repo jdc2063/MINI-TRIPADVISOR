@@ -17,7 +17,7 @@ Une fois que vous aurez cloné le projet git, entrez dans le projet puis voici c
 
 Ainsi, vous aurez installé des dossiers importants pour le bon fonctionnement du projet.
 
-N'oubliez pas de créer et d'activer votre base de donnée.
+N'oubliez pas de créer et d'activer votre base de données.
 
 Vous devrez ensuite modifier le fichier .env afin de rentrer les informations de votre base de données qui se situe de la ligne 10 à 15.
 
@@ -71,4 +71,4 @@ Quelque soit ce que vous modifiez, les valeurs par défaut sont les valeurs de l
 
 ### Easter Egg
 
-Dans la page d'accueil, dans le cas où aucun établissement est enrengistré, un lien secret est caché dans la phrase d'accueil.
+Dans la page d'accueil, dans le cas où aucun établissement n'est enregistré, un lien secret est caché dans la phrase d'accueil.
